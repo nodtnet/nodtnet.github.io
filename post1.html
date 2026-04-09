@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nodt | what the hell is a nodt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px 50px;
+            background-color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+            color: #0000ff;
+            background-image: url('media/images/notebook.jpg');
+            background-repeat: repeat;
+        }
+
+        /* --- Header --- */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            gap: 70px; 
+            border-bottom: 2px solid #0000ff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-container img {
+            height: 55px; 
+            width: auto;
+        }
+
+        .taskbar {
+            display: flex;
+            gap: 45px; 
+        }
+
+        .taskbar a {
+            text-decoration: none;
+            color: #0000ff;
+            font-size: 26px;
+        }
+
+        /* --- Layout --- */
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .sitemap {
+            min-width: 220px;
+        }
+
+        .sitemap h2 {
+            text-decoration: underline;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .sitemap ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sitemap li {
+            margin-bottom: 10px;
+        }
+
+        .sitemap a {
+            color: #0000ff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* The "Currently Selected" Style */
+        .sitemap a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            border-left: 1px solid #0000ff;
+            padding-left: 40px;
+            max-width: 800px;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-size: 32px;
+            font-style: italic;
+            margin-top: 0;
+        }
+
+        .date {
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .blog-body {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #0000ff;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="logo-container">
+            <img src="media/images/nodt.png" alt="NODT Logo">
+        </div>
+        <nav class="taskbar">
+            <a href="index.html">home</a>
+            <a href="repository.html">repository</a>
+            <a href="contact.html">contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sitemap">
+            <h2>Information</h2>
+            <ul>
+                <li><a href="post1.html" class="active">- nodt</a></li>
+                <li><a href="post2.html">- object detection</a></li>
+                <li><a href="post3.html">- blog post 3</a></li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <article>
+                <span class="date">April 09, 2026</span>
+                <h1>nodt</h1>
+                
+                <div class="blog-body">
+                    <p>welcome to noesis directory! (or nodt for short)</p>
+                    
+                    <p>I will update this with projects or with miscellaneous things that I have been working on.</p>
+                    
+                    <p>there is a nonzero chance that I will use this again</p>
+                
+                </div>
+
+                <hr>
+                <p><a href="index.html" style="color: #0000ff;">&larr; back to home</a></p>
+            </article>
+        </main>
+    </div>
+
+</body>
+</html>
