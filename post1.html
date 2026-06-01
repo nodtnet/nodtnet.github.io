@@ -3,149 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nodt | what the hell is a nodt</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px 50px;
-            background-color: #ffffff;
-            font-family: 'Times New Roman', Times, serif;
-            color: #0000ff;
-            background-image: url('media/images/notebook.jpg');
-            background-repeat: repeat;
-        }
-
-        /* --- Header --- */
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; 
-            gap: 70px; 
-            border-bottom: 2px solid #0000ff;
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .logo-container img {
-            height: 55px; 
-            width: auto;
-        }
-
-        .taskbar {
-            display: flex;
-            gap: 45px; 
-        }
-
-        .taskbar a {
-            text-decoration: none;
-            color: #0000ff;
-            font-size: 26px;
-        }
-
-        /* --- Layout --- */
-        .container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .sitemap {
-            min-width: 220px;
-        }
-
-        .sitemap h2 {
-            text-decoration: underline;
-            font-size: 24px;
-            margin-top: 0;
-        }
-
-        .sitemap ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sitemap li {
-            margin-bottom: 10px;
-        }
-
-        .sitemap a {
-            color: #0000ff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        /* The "Currently Selected" Style */
-        .sitemap a.active {
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        .content-area {
-            flex-grow: 1;
-            border-left: 1px solid #0000ff;
-            padding-left: 40px;
-            max-width: 800px;
-        }
-
-        /* --- Typography --- */
-        h1 {
-            font-size: 32px;
-            font-style: italic;
-            margin-top: 0;
-        }
-
-        .date {
-            font-size: 14px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .blog-body {
-            font-size: 19px;
-            line-height: 1.6;
-        }
-
-        hr {
-            border: 0;
-            border-top: 1px solid #0000ff;
-            margin: 40px 0;
-        }
-    </style>
+    <title>nodt | object detection</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header class="top-bar">
-        <div class="logo-container">
-            <img src="media/images/nodt.png" alt="NODT Logo">
-        </div>
-        <nav class="taskbar">
-            <a href="index.html">home</a>
-            <a href="repository.html">repository</a>
-            <a href="contact.html">contact</a>
-        </nav>
-    </header>
+    <header id="site-header"></header>
 
     <div class="container">
-        <aside class="sitemap">
-            <h2>Links</h2>
-            <ul>
-                <li><a href="post1.html" class="active">- nodt</a></li>
-                <li><a href="post2.html">- object detection</a></li>
-                <li><a href="post3.html">- blog post 3</a></li>
-            </ul>
-        </aside>
+        <aside id="site-sitemap"></aside>
 
         <main class="content-area">
             <article>
                 <span class="date">April 09, 2026</span>
-                <h1>nodt</h1>
+                <h1>object detection</h1>
                 
                 <div class="blog-body">
-                    <p>welcome to noesis directory! (or nodt for short)</p>
+                    <p>I was messing around in Python and found some object detection packages and decided that it would be interesting to see how cars behave at intersections.</p>
                     
-                    <p>I will update this with projects or with miscellaneous things that I have been working on.</p>
+                    <p>I made a small script that would place bounds around cars and classify them. Using this you could make motion maps, trails marking where cars were going, heatmaps (not pictured), and calculate traffic flow statistics.</p>
+                    <img src="media/images/labelled.png" alt="labelled image" style="width: 100%; max-width: 600px; margin: 20px 0;">
+                    <p>Some occlusion happens while detecting images however most of the time each car was tracked during at least one certain epoch and it can be configured to tag cars in the case that it stops tracking them for a moment and would then reclassify them as the original vehicle (as to not create duplicates). The numbers next to the labels are confidence scores.</p>
+                    <img src="media/images/paths.png" alt="paths" style="width: 100%; max-width: 600px; margin: 20px 0;">
+                    <p>By showing the paths each car took you can get nice looking trails. When I took this picture the script was only running for a few minutes but it does give information on how busy certain lanes are. If I utilized the concentration of paths per area and colorized it would make a very nice representation of traffic flow.</p>
+                    <img src="media/images/velocity.png" alt="velocity map" style="width: 100%; max-width: 600px; margin: 20px 0;">
+                    <p>I thought this one was pretty neat although I do not really have a use for it now. Perhaps it could be used to analyze cars that are moving against the flow of traffic or to use it similar to a speed camera and see what is the average speed moving through a zone.</p>
+                    <img src="media/videos/peoplewalking.gif" alt="this gif of people walking while labeled is currently unavailable" style="width: 100%; max-width: 600px; margin: 20px 0;">
+                    <p>Using a slightly heavier model as opposed to yolov8l-worldv2 (I could do this due to it being a pre-recorded video), I thought that rtdetr-x handled this task very well. The red box on the right side counts how many tracked individuals are in the square. Maybe this could later be used for occupancy checking of a parking lot.</p>
                     
-                    <p>there is a nonzero chance that I will use this again</p>
-                
+                    <p>Overall I thought it was a pretty neat project to mess around with. I am considering recording real life footage of a parking lot and making a occupancy monitor during a busy time. Making an LPR using a handheld camera would pose an interesting challenge. </p>
                 </div>
 
                 <hr>
@@ -154,5 +40,6 @@
         </main>
     </div>
 
+    <script src="assets/js/include.js"></script>
 </body>
 </html>
